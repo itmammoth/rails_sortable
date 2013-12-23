@@ -1,0 +1,29 @@
+<h1>Listing items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Sort</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody class="sortable">
+    <% sortable_fetch(@items) do |item, id_tag| %>
+      <tr id="<%= id_tag %>">
+        <td><%= item.title %></td>
+        <td><%= item.sort %></td>
+        <td><%= link_to 'Show', item %></td>
+        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Item', new_item_path %>
