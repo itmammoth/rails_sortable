@@ -9,16 +9,17 @@ Gem::Specification.new do |s|
   s.version     = RailsSortable::VERSION
   s.authors     = ["itmammoth"]
   s.email       = ["itmammoth@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of RailsSortable."
-  s.description = "TODO: Description of RailsSortable."
+  s.homepage    = "https://github.com/itmammoth/rails_sortable"
+  s.summary     = "Easy drag & drop sorting for rails."
+  s.description = "rails_sortable provides easy drag & drop sorting for rails AR models."
+  s.licenses    = ['MIT']
 
-  s.files = Dir["{app,config,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency "rails", "~> 4.0.2"
+  s.add_dependency "rails", "~> 4.0"
 
-  s.add_development_dependency "sqlite3"
-  s.add_development_dependency "rspec-rails"
+  s.add_development_dependency "sqlite3", "~> 1.3"
+  s.add_development_dependency "rspec-rails", "~> 2.0"
 end
