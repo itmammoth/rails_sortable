@@ -7,13 +7,13 @@ require "rails_sortable/version"
 Gem::Specification.new do |s|
   s.name        = "rails_sortable"
   s.version     = RailsSortable::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
+  s.authors     = ["itmammoth"]
+  s.email       = ["itmammoth@gmail.com"]
   s.homepage    = "TODO"
   s.summary     = "TODO: Summary of RailsSortable."
   s.description = "TODO: Description of RailsSortable."
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 
   s.test_files = Dir["spec/**/*"]
 
