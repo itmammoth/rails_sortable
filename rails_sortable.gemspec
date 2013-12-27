@@ -14,12 +14,14 @@ Gem::Specification.new do |s|
   s.description = "rails_sortable provides easy drag & drop sorting for rails AR models."
   s.licenses    = ['MIT']
 
-  s.files = Dir["{app,config,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,lib,vendor/assets}/**/*", "LICENSE", "Rakefile", "README.md"]
 
   s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "rails", "~> 4.0"
 
+  s.add_development_dependency "jquery-rails", "~> 3.0"
+  s.add_development_dependency "jquery-ui-rails", "~> 4.1"
   s.add_development_dependency "sqlite3", "~> 1.3"
   s.add_development_dependency "rspec-rails", "~> 2.0"
 end

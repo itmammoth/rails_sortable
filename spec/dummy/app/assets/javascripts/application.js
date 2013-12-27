@@ -13,5 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.sortable
-//= require_tree ../../../../../app/assets/javascripts
+//= require rails_sortable
 //= require_tree .
