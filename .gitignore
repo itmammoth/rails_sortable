@@ -12,3 +12,4 @@ vendor
 Gemfile.lock
 .rspec
 bin
+*.gem
