@@ -44,6 +44,8 @@ and Item model is
 class Item < ActiveRecord::Base
   include RailsSortable::Model
   set_sortable :sort  # indicate sort column
+  # If you don't want timestamps to be updated with sorting, use following option. 
+  # set_sortable :sort, silence_recording_timestamps: true
 end
 ```
 
