@@ -2,6 +2,10 @@
 
 RailsSortable is a simple Rails gem that allows you to create a listing view with drag & drop sorting.
 
+see the video @YouTube
+
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/MpT3hiNVmsc/0.jpg)](http://www.youtube.com/watch?v=MpT3hiNVmsc)
+
 ## Setup
 
 Add it to your Gemfile then run bundle to install it.
