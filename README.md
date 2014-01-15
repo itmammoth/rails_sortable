@@ -19,7 +19,7 @@ And then add it to the Asset Pipeline in the application.js file:
 
 ## Usage
 
-RailsSortable requires specific column which is named "sort" on ActiveRecord Model for own implementation.
+RailsSortable requires specific column on ActiveRecord Model for own implementation.
 
 For instance, the following migration indicates the case that you are attemtting to make Item model sortable.
 
@@ -35,6 +35,14 @@ class CreateItems < ActiveRecord::Migration
   end
 end
 ```
+and Item model is
+```ruby
+class Item < ActiveRecord::Base
+  include RailsSortable::Model
+  set_sortable :sort
+end
+```
+
 and its listing view (typically - index.html.erb) is
 ```erb
 ...

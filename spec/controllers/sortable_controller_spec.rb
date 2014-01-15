@@ -3,9 +3,9 @@ require 'spec_helper'
 describe SortableController do
   describe "POST reorder" do
     before do
-      @item1 = Item.create! sort: 0
-      @item2 = Item.create! sort: 1
-      @item3 = Item.create! sort: 2
+      @item1 = Item.create!
+      @item2 = Item.create!
+      @item3 = Item.create!
     end
     it "should reorder models" do
       post :reorder, Item: [@item1.id, @item3.id, @item2.id]

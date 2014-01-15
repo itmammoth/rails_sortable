@@ -7,7 +7,7 @@ class SortableController < ApplicationController
     models = klass.order(:sort).to_a
     ids.each_with_index do |id, new_sort|
       model = models.find {|m| m.id == id }
-      model.update_attributes! sort: new_sort if model.sort != new_sort
+      model.update_sort!(new_sort) if model.sort != new_sort
     end
     render nothing: true
   end
