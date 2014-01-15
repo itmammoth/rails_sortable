@@ -43,7 +43,7 @@ and Item model is
 ```ruby
 class Item < ActiveRecord::Base
   include RailsSortable::Model
-  set_sortable :sort
+  set_sortable :sort  # indicate sort column
 end
 ```
 
@@ -72,7 +72,7 @@ jQuery ->
   $(".sortable").railsSortable()
 ```
 
-## Option
+## Javascript options
 jquery plugin `railsSortable` is just a wrapper `jquery.ui.sortable`. therefore it accepts all of `sortbale` options.
 
 see the [http://api.jqueryui.com/sortable/](http://api.jqueryui.com/sortable/) to get detail.
