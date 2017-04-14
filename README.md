@@ -1,6 +1,6 @@
 # RailsSortable
 
-RailsSortable is a simple Rails gem that allows you to create a listing view with drag & drop sorting.
+RailsSortable is a simple Rails gem that allows you to create a listing view with drag & drop sorting. The arranged order will be persisted in the table without any pain.
 
 ![RailsSortable](https://raw.githubusercontent.com/itmammoth/rails_sortable/master/rails_sortable.gif "RailsSortable")
 
