@@ -5,6 +5,7 @@
     <tr>
       <th>Title</th>
       <th>Sort</th>
+      <th>Updated at</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,6 +17,7 @@
       <tr id="<%= id_tag %>">
         <td><%= item.title %></td>
         <td><%= item.sort %></td>
+        <td><%= item.updated_at %></td>
         <td><%= link_to 'Show', item %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>
         <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>

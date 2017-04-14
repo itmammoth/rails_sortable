@@ -4,10 +4,11 @@ class SortableController < ApplicationController
   #
   def reorder
     klass, ids = parse_params
-    models = klass.order(:sort).to_a
+    attr = klass.sort_attribute
+    models = klass.order(attr).to_a
     ids.each_with_index do |id, new_sort|
       model = models.find {|m| m.id == id }
-      model.update_sort!(new_sort) if model.sort != new_sort
+      model.update_sort!(new_sort) if model.read_attribute(attr) != new_sort
     end
     render nothing: true
   end
