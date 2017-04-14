@@ -1,0 +1,5 @@
+(function($) {
+
+  $(".sortable").railsSortable();
+
+})(jQuery);

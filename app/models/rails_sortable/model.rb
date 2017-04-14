@@ -1,5 +1,4 @@
 module RailsSortable
-
   #
   # Include this module to your ActiveRecord model.
   # And you must call `set_sortable` method for using sortable model.
@@ -20,7 +19,7 @@ module RailsSortable
 
     def update_sort!(new_value)
       write_attribute sort_attribute, new_value
-      if sortable_options[:silence_recording_timestamps]
+      if self.class.sortable_options[:silence_recording_timestamps]
         silence_recording_timestamps { save! }
       else
         save!
@@ -46,6 +45,10 @@ module RailsSortable
       (self.class.maximum(sort_attribute) || 0) + 1
     end
 
+    def sort_attribute
+      self.class.sort_attribute
+    end
+
     module ClassMethods
       #
       # allowed options
@@ -53,10 +56,9 @@ module RailsSortable
       #     When it is true, timestamp(updated_at) will be NOT modified with reordering.
       #
       def set_sortable(attribute, options = {})
-        define_method("sort_attribute") { attribute }
-        define_method("sortable_options") { options }
+        self.define_singleton_method(:sort_attribute) { attribute }
+        self.define_singleton_method(:sortable_options) { options }
       end
     end
   end
-
 end
