@@ -4,7 +4,7 @@ class CreateItems < ActiveRecord::Migration
       t.string :title
       t.integer :sort
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

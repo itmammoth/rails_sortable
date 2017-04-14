@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SortableController do
+describe SortableController, type: :controller do
   describe "POST reorder" do
     before do
       @item1 = Item.create!

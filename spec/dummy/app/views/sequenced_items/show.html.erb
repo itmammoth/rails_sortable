@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @sequenced_item.title %>
+</p>
+
+<p>
+  <strong>Sequence:</strong>
+  <%= @sequenced_item.sequence %>
+</p>
+
+<%= link_to 'Edit', edit_sequenced_item_path(@sequenced_item) %> |
+<%= link_to 'Back', sequenced_items_path %>

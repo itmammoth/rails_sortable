@@ -1,4 +1,4 @@
 Dummy::Application.routes.draw do
   resources :items
-  resources :other_items
+  resources :sequenced_items
 end
