@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email       = ["itmammoth@gmail.com"]
   s.homepage    = "https://github.com/itmammoth/rails_sortable"
   s.summary     = "Easy drag & drop sorting for rails."
-  s.description = "rails_sortable provides easy drag & drop sorting for rails AR models."
+  s.description = "rails_sortable provides easy drag & drop sorting for rails 4 and 5."
   s.licenses    = ['MIT']
 
   s.files = Dir["{app,config,lib,vendor/assets}/**/*", "LICENSE", "Rakefile", "README.md"]
