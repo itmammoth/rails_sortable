@@ -20,9 +20,9 @@ And then add it to the Asset Pipeline in the application.js file:
 
 ## Usage
 
-RailsSortable requires specific column on ActiveRecord Model for own implementation.
+RailsSortable requires a specific column on the ActiveRecord Model for its implementation.
 
-For instance, the following migration indicates the case that you are attemtting to make Item model sortable.
+For instance, the following migration indicates the case that you are attemtting to make `Item` model sortable.
 
 ```ruby
 class CreateItems < ActiveRecord::Migration
@@ -41,7 +41,7 @@ and Item model is
 class Item < ActiveRecord::Base
   include RailsSortable::Model
   set_sortable :sort  # indicate sort column
-  # If you don't want timestamps to be updated with sorting, use following option. 
+  # If you do not want timestamps to be updated on sorting, use following option. 
   # set_sortable :sort, silence_recording_timestamps: true
 end
 ```
@@ -72,6 +72,6 @@ jQuery ->
 ```
 
 ## Javascript options
-jquery plugin `railsSortable` is just a wrapper `jquery.ui.sortable`. therefore it accepts all of `sortbale` options.
+jQuery plugin `railsSortable` is just a wrapper of `jquery.ui.sortable`. therefore it accepts all of `sortbale` options.
 
 see the [http://api.jqueryui.com/sortable/](http://api.jqueryui.com/sortable/) to get detail.
