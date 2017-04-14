@@ -10,7 +10,7 @@ class SortableController < ApplicationController
       model = models.find {|m| m.id == id }
       model.update_sort!(new_sort) if model.read_attribute(attr) != new_sort
     end
-    render nothing: true
+    head :ok
   end
 
 private
