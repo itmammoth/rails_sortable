@@ -10,5 +10,4 @@ vendor/bundle
 Gemfile.lock
 gemfiles/*.lock
 .rspec
-bin
 *.gem
