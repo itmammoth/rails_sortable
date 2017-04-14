@@ -2,9 +2,7 @@
 
 RailsSortable is a simple Rails gem that allows you to create a listing view with drag & drop sorting.
 
-see the video @YouTube
-
-[![RailsSortable](https://raw.githubusercontent.com/itmammoth/rails_sortable/master/rails_sortable.gif)]
+![RailsSortable](https://raw.githubusercontent.com/itmammoth/rails_sortable/master/rails_sortable.gif "RailsSortable")
 
 ## Setup
 
@@ -17,7 +15,7 @@ gem 'rails_sortable'
 
 And then add it to the Asset Pipeline in the application.js file:
 ```
-//= require jquery.ui.sortable
+//= require jquery-ui/widgets/sortable
 //= require rails_sortable
 ```
 
