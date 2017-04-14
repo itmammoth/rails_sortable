@@ -36,7 +36,7 @@ class CreateItems < ActiveRecord::Migration
   end
 end
 ```
-and Item model is
+and `Item` model as
 ```ruby
 class Item < ActiveRecord::Base
   include RailsSortable::Model
@@ -46,7 +46,7 @@ class Item < ActiveRecord::Base
 end
 ```
 
-and its listing view (typically - index.html.erb) is
+and the listing view (typically - index.html.erb) as
 ```erb
 ...
 <tbody class="sortable">  <!-- sortable target -->
@@ -64,7 +64,7 @@ and its listing view (typically - index.html.erb) is
 ...
 ```
 
-finally, you apply sortable with Javascript.
+finally, apply sortable with Javascript.
 
 ```coffeescript
 jQuery ->
