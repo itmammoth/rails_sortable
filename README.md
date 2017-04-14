@@ -11,7 +11,6 @@ Add it to your Gemfile then run bundle to install it.
 gem 'jquery-ui-rails'
 gem 'rails_sortable'
 ```
-* rails_sortable depends on jquery-ui-rails (~> 4.0)
 
 And then add it to the Asset Pipeline in the application.js file:
 ```
