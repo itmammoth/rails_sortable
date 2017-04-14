@@ -1,0 +1,31 @@
+<h1>Listing sequenced_items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Sequence</th>
+      <th>Updated at</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody class="sortable">
+    <% sortable_fetch(@sequenced_items) do |sequenced_item, id_tag| %>
+      <tr id="<%= id_tag %>">
+        <td><%= sequenced_item.title %></td>
+        <td><%= sequenced_item.sequence %></td>
+        <td><%= sequenced_item.updated_at %></td>
+        <td><%= link_to 'Show', sequenced_item %></td>
+        <td><%= link_to 'Edit', edit_sequenced_item_path(sequenced_item) %></td>
+        <td><%= link_to 'Destroy', sequenced_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sequenced item', new_sequenced_item_path %>

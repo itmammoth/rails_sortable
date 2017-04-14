@@ -20,10 +20,10 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 4.0"
 
-  s.add_development_dependency "jquery-rails", "~> 3.0"
-  s.add_development_dependency "jquery-ui-rails", "~> 4.1"
+  s.add_development_dependency "jquery-rails", "~> 4.3"
+  s.add_development_dependency "jquery-ui-rails", "~> 6.0"
   s.add_development_dependency "sqlite3", "~> 1.3"
-  s.add_development_dependency "rspec-rails", "~> 2.0"
-  s.add_development_dependency "pry-rails","~> 0.3"
-  s.add_development_dependency "pry-byebug", "~> 1.2"
+  s.add_development_dependency "rspec-rails", "~> 3.5"
+  s.add_development_dependency "pry-rails", "~> 0.3"
+  s.add_development_dependency "pry-byebug", "~> 3.4"
 end

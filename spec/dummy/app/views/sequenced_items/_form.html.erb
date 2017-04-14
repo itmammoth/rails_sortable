@@ -1,10 +1,10 @@
-<%= form_for(@other_item) do |f| %>
-  <% if @other_item.errors.any? %>
+<%= form_for(@sequenced_item) do |f| %>
+  <% if @sequenced_item.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@other_item.errors.count, "error") %> prohibited this other_item from being saved:</h2>
+      <h2><%= pluralize(@sequenced_item.errors.count, "error") %> prohibited this sequenced_item from being saved:</h2>
 
       <ul>
-      <% @other_item.errors.full_messages.each do |msg| %>
+      <% @sequenced_item.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
