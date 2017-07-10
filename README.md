@@ -4,7 +4,9 @@ RailsSortable is a simple Rails gem that allows you to create a listing view wit
 
 ![RailsSortable](https://raw.githubusercontent.com/itmammoth/rails_sortable/master/rails_sortable.gif "RailsSortable")
 
-## Setup
+## Setup (for rails 5.1)
+
+* [For rails 4](https://github.com/itmammoth/rails_sortable/tree/rails4)
 
 Add it to your Gemfile then run bundle to install it.
 ```
