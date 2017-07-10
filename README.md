@@ -14,6 +14,7 @@ gem 'rails_sortable'
 
 And then add it to the Asset Pipeline in the application.js file:
 ```
+//= require jquery
 //= require jquery-ui/widgets/sortable
 //= require rails_sortable
 ```
@@ -41,8 +42,16 @@ and `Item` model as
 class Item < ActiveRecord::Base
   include RailsSortable::Model
   set_sortable :sort  # indicate sort column
-  # If you do not want timestamps to be updated on sorting, use following option. 
+  # If you do not want timestamps to be updated on sorting, use following option.
   # set_sortable :sort, silence_recording_timestamps: true
+end
+```
+and `Item`s controller as
+```ruby
+class ItemsController < ApplicationController
+  def index
+    @items = Item.order(:sort).all
+  end
 end
 ```
 
