@@ -8,6 +8,7 @@ RailsSortable is a simple Rails gem that allows you to create a listing view wit
 
 Add it to your Gemfile then run bundle to install it.
 ```
+gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'rails_sortable'
 ```
@@ -26,7 +27,7 @@ RailsSortable requires a specific column on the ActiveRecord Model for its imple
 For instance, the following migration indicates the case that you are attemtting to make `Item` model sortable.
 
 ```ruby
-class CreateItems < ActiveRecord::Migration
+class CreateItems < ActiveRecord::Migration[5.1]
   def change
     create_table :items do |t|
       t.string :title
@@ -39,7 +40,7 @@ end
 ```
 and `Item` model as
 ```ruby
-class Item < ActiveRecord::Base
+class Item < ApplicationRecord
   include RailsSortable::Model
   set_sortable :sort  # indicate sort column
   # If you do not want timestamps to be updated on sorting, use following option.
@@ -76,9 +77,10 @@ and the listing view (typically - index.html.erb) as
 
 finally, apply sortable with Javascript.
 
-```coffeescript
-jQuery ->
-  $(".sortable").railsSortable()
+```javascript
+$(function() {
+  $('.sortable').railsSortable();
+});
 ```
 
 ## Javascript options
