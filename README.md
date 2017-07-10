@@ -49,7 +49,8 @@ end
 and the listing view (typically - index.html.erb) as
 ```erb
 ...
-<tbody class="sortable">  <!-- sortable target -->
+<table>
+  <tbody class="sortable">  <!-- sortable target -->
     <% sortable_fetch(@items) do |item, id_tag| %>  <!-- RailsSortable helper -->
       <tr id="<%= id_tag %>">  <!-- you must write it -->
         <td><%= item.title %></td>
