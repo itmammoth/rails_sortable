@@ -18,6 +18,7 @@ gem 'rails_sortable'
 And then add it to the Asset Pipeline in the application.js file:
 ```
 //= require jquery
+//= require jquery_ujs
 //= require jquery-ui/widgets/sortable
 //= require rails_sortable
 ```
