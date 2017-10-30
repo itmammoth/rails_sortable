@@ -1,5 +1,4 @@
-MIGRATION = Gem::Version.new(Rails.version) < Gem::Version.new(5) ? ActiveRecord::Migration : ActiveRecord::Migration[4.2]
-class CreateSequencedItems < MIGRATION
+class CreateSequencedItems < Dummy::MigrationClass
   def change
     create_table :sequenced_items do |t|
       t.string :title
