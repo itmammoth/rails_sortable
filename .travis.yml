@@ -15,16 +15,17 @@ script:
 gemfile:
   - gemfiles/rails42.gemfile
   - gemfiles/rails50.gemfile
+  - gemfiles/rails51.gemfile
 matrix:
   fast_finish: true
-  exclude:
+  include:
     - rvm: 1.9.3
-      gemfile: gemfiles/rails50.gemfile
+      gemfile: gemfiles/rails42.gemfile
     - rvm: 2.2.2
-      gemfile: gemfiles/rails42.gemfile
+      gemfile: gemfiles/rails50.gemfile
     - rvm: 2.4.1
-      gemfile: gemfiles/rails42.gemfile
+      gemfile: gemfiles/rails51.gemfile
     - rvm: ruby-head
-      gemfile: gemfiles/rails42.gemfile
+      gemfile: gemfiles/rails51.gemfile
   allow_failures:
     - rvm: ruby-head
