@@ -1,17 +1,14 @@
 language: ruby
-rvm:
-  - 1.9.3
-  - 2.2.2
-  - 2.4.1
-  - ruby-head
 before_install:
   - gem update --system
   - gem update bundler
   - gem cleanup bundler
 install: "bundle install --jobs 8"
-script:
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - bundle exec rspec
+rvm:
+  - 1.9.3
+  - 2.2.2
+  - 2.4.1
+  - ruby-head
 gemfile:
   - gemfiles/rails42.gemfile
   - gemfiles/rails50.gemfile
@@ -30,3 +27,6 @@ matrix:
     - rvm: ruby-head
       gemfile: gemfiles/rails51.gemfile
   fast_finish: true
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rspec
