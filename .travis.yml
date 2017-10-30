@@ -1,3 +1,8 @@
+language: ruby
+rvm:
+  - 1.9.3
+  - 2.2.2
+  - ruby-head
 gemfile:
   - gemfiles/rails42.gemfile
   - gemfiles/rails50.gemfile
