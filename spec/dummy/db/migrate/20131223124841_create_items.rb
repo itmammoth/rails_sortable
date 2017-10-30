@@ -1,4 +1,5 @@
-class CreateItems < ActiveRecord::Migration
+MIGRATION = Gem::Version.new(Rails.version) < Gem::Version.new(5) ? ActiveRecord::Migration : ActiveRecord::Migration[4.2]
+class CreateItems < MIGRATION
   def change
     create_table :items do |t|
       t.string :title
