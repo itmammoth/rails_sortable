@@ -46,7 +46,7 @@ class Item < ApplicationRecord
   include RailsSortable::Model
   set_sortable :sort  # Indicate a sort column
   # If you do NOT want timestamps to be updated on sorting, use the following option.
-  # set_sortable :sort, silence_recording_timestamps: true
+  # set_sortable :sort, without_updating_timestamps: true
 end
 ```
 and `ItemsController` as
@@ -63,8 +63,8 @@ and the listing view (typically - index.html.erb) as
 ...
 <table>
   <tbody class="sortable">  <!-- sortable target -->
-    <% sortable_fetch(@items) do |item, id_tag| %>  <!-- RailsSortable helper -->
-      <tr id="<%= id_tag %>">  <!-- Needs id tag on sorting elements -->
+    <% @items.each_with_sortable_id do |item, sortable_id| %>
+      <tr id="<%= sortable_id %>">  <!-- Needs id tag on sorting elements -->
         <td><%= item.title %></td>
         <td><%= item.sort %></td>
         <td><%= link_to 'Show', item %></td>

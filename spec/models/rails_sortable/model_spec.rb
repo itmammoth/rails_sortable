@@ -26,11 +26,11 @@ describe RailsSortable::Model, type: :model do
       end
     end
 
-    describe "silence_recording_timestamps" do
+    describe "without_updating_timestamps" do
       context "when optional value is true" do
         before do
           Item.class_eval do
-            set_sortable :sort, silence_recording_timestamps: true
+            set_sortable :sort, without_updating_timestamps: true
           end
         end
         it "should NOT modify timestamps" do
@@ -42,7 +42,7 @@ describe RailsSortable::Model, type: :model do
       context "when optional value is NOT true" do
         before do
           Item.class_eval do
-            set_sortable :sort, silence_recording_timestamps: false
+            set_sortable :sort, without_updating_timestamps: false
           end
         end
         it "should modify timestamps" do
@@ -50,6 +50,16 @@ describe RailsSortable::Model, type: :model do
           expect { item.update_sort!(1000) }.to change(item, :updated_at)
         end
       end
+    end
+  end
+
+  describe "each_with_sortable_id" do
+    it "should make models iterable with sortable ids" do
+      items = 2.times.map { |i| Item.create! sort: i }
+      expect { |b| Item.order(:sort).each_with_sortable_id(&b) }.to yield_successive_args(
+        [items[0], "Item_#{items[0].id}"],
+        [items[1], "Item_#{items[1].id}"],
+      )
     end
   end
 end

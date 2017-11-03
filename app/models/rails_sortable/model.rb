@@ -6,7 +6,7 @@ module RailsSortable
   # ex)
   # class SampleModel < ActiveRecord::Base
   #   include RailsSortable::Model
-  #   set_sortable :sort, silence_recording_timestamps: true
+  #   set_sortable :sort, without_updating_timestamps: true
   # end
   #
   module Model
@@ -20,7 +20,10 @@ module RailsSortable
     def update_sort!(new_value)
       write_attribute sort_attribute, new_value
       if self.class.sortable_options[:silence_recording_timestamps]
-        silence_recording_timestamps { save! }
+        warn "[DEPRECATION] `silence_recording_timestamps` is deprecated. Please use `without_updating_timestamps` instead."
+        without_updating_timestamps { save! }
+      elsif self.class.sortable_options[:without_updating_timestamps]
+        without_updating_timestamps { save! }
       else
         save!
       end
@@ -33,7 +36,7 @@ module RailsSortable
       write_attribute sort_attribute, max_sort
     end
 
-    def silence_recording_timestamps
+    def without_updating_timestamps
       raise ArgumentError unless block_given?
       original_record_timestamps = self.class.record_timestamps
       self.class.record_timestamps = false
@@ -52,8 +55,8 @@ module RailsSortable
     module ClassMethods
       #
       # allowed options
-      # - silence_recording_timestamps
-      #     When it is true, timestamp(updated_at) will be NOT modified with reordering.
+      # - without_updating_timestamps
+      #     When it is true, timestamp(updated_at) will be NOT touched on reordering.
       #
       def set_sortable(attribute, options = {})
         self.define_singleton_method(:sort_attribute) { attribute }
