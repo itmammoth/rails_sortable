@@ -5,7 +5,7 @@ RailsSortable is a simple Rails gem that allows you to create a listing view wit
 
 ![RailsSortable](https://raw.githubusercontent.com/itmammoth/rails_sortable/master/rails_sortable.gif "RailsSortable")
 
-## Setup
+# Setup
 
 Add the following to your `Gemfile` then run bundle to install them.
 ```
@@ -22,7 +22,7 @@ And then add the following to the asset pipeline in the `application.js`:
 //= require rails_sortable
 ```
 
-## Usage
+# Usage
 
 RailsSortable requires a specific column on the ActiveRecord Model for its implementation.
 
@@ -85,7 +85,30 @@ $(function() {
 });
 ```
 
-## Javascript options
+# Javascript options
 jQuery plugin `railsSortable` is just a wrapper of `jquery.ui.sortable`. therefore it accepts all of `sortbale` options.
 
 see the [http://api.jqueryui.com/sortable/](http://api.jqueryui.com/sortable/) to get the details.
+
+# Contribution
+
+Fork it, then install required gems like below.
+```bash
+$ bundle install --path=vender/bundle
+$ appraisal install
+```
+
+Please give me a PR freely.
+
+### Testing
+```bash
+# Run server with rails 5.1 (rails42 & rails50 are also available)
+$ appraisal rails51 spec/dummy/bin/rails s
+
+# Run rspec for all rails versions
+$ appraisal rspec
+```
+
+# Licence
+
+MIT Licence.
