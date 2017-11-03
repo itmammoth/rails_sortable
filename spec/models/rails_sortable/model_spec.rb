@@ -26,11 +26,11 @@ describe RailsSortable::Model, type: :model do
       end
     end
 
-    describe "silence_recording_timestamps" do
+    describe "without_updating_timestamps" do
       context "when optional value is true" do
         before do
           Item.class_eval do
-            set_sortable :sort, silence_recording_timestamps: true
+            set_sortable :sort, without_updating_timestamps: true
           end
         end
         it "should NOT modify timestamps" do
@@ -42,7 +42,7 @@ describe RailsSortable::Model, type: :model do
       context "when optional value is NOT true" do
         before do
           Item.class_eval do
-            set_sortable :sort, silence_recording_timestamps: false
+            set_sortable :sort, without_updating_timestamps: false
           end
         end
         it "should modify timestamps" do
