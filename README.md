@@ -5,18 +5,16 @@ RailsSortable is a simple Rails gem that allows you to create a listing view wit
 
 ![RailsSortable](https://raw.githubusercontent.com/itmammoth/rails_sortable/master/rails_sortable.gif "RailsSortable")
 
-## Setup (for rails 5.1)
+## Setup
 
-* [For rails 4](https://github.com/itmammoth/rails_sortable/tree/rails4)
-
-Add it to your Gemfile then run bundle to install it.
+Add the following to your `Gemfile` then run bundle to install them.
 ```
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'rails_sortable'
 ```
 
-And then add it to the Asset Pipeline in the application.js file:
+And then add the following to the asset pipeline in the `application.js`:
 ```
 //= require jquery
 //= require jquery_ujs
@@ -46,12 +44,12 @@ and `Item` model as
 ```ruby
 class Item < ApplicationRecord
   include RailsSortable::Model
-  set_sortable :sort  # indicate sort column
-  # If you do not want timestamps to be updated on sorting, use following option.
+  set_sortable :sort  # Indicate a sort column
+  # If you do NOT want timestamps to be updated on sorting, use the following option.
   # set_sortable :sort, silence_recording_timestamps: true
 end
 ```
-and `Item`s controller as
+and `ItemsController` as
 ```ruby
 class ItemsController < ApplicationController
   def index
@@ -66,7 +64,7 @@ and the listing view (typically - index.html.erb) as
 <table>
   <tbody class="sortable">  <!-- sortable target -->
     <% sortable_fetch(@items) do |item, id_tag| %>  <!-- RailsSortable helper -->
-      <tr id="<%= id_tag %>">  <!-- you must write it -->
+      <tr id="<%= id_tag %>">  <!-- Needs id tag on sorting elements -->
         <td><%= item.title %></td>
         <td><%= item.sort %></td>
         <td><%= link_to 'Show', item %></td>
@@ -90,4 +88,4 @@ $(function() {
 ## Javascript options
 jQuery plugin `railsSortable` is just a wrapper of `jquery.ui.sortable`. therefore it accepts all of `sortbale` options.
 
-see the [http://api.jqueryui.com/sortable/](http://api.jqueryui.com/sortable/) to get detail.
+see the [http://api.jqueryui.com/sortable/](http://api.jqueryui.com/sortable/) to get the details.
