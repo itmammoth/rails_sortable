@@ -63,8 +63,8 @@ and the listing view (typically - index.html.erb) as
 ...
 <table>
   <tbody class="sortable">  <!-- sortable target -->
-    <% sortable_fetch(@items) do |item, id_tag| %>  <!-- RailsSortable helper -->
-      <tr id="<%= id_tag %>">  <!-- Needs id tag on sorting elements -->
+    <% @items.each_with_sortable_id do |item, sortable_id| %>
+      <tr id="<%= sortable_id %>">  <!-- Needs id tag on sorting elements -->
         <td><%= item.title %></td>
         <td><%= item.sort %></td>
         <td><%= link_to 'Show', item %></td>

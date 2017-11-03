@@ -13,8 +13,8 @@
   </thead>
 
   <tbody class="sortable">
-    <% sortable_fetch(@sequenced_items) do |sequenced_item, id_tag| %>
-      <tr id="<%= id_tag %>">
+    <% @sequenced_items.each_with_sortable_id do |sequenced_item, sortable_id| %>
+      <tr id="<%= sortable_id %>">
         <td><%= sequenced_item.title %></td>
         <td><%= sequenced_item.sequence %></td>
         <td><%= sequenced_item.updated_at %></td>

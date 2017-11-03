@@ -52,4 +52,14 @@ describe RailsSortable::Model, type: :model do
       end
     end
   end
+
+  describe "each_with_sortable_id" do
+    it "should make models iterable with sortable ids" do
+      items = 2.times.map { |i| Item.create! sort: i }
+      expect { |b| Item.order(:sort).each_with_sortable_id(&b) }.to yield_successive_args(
+        [items[0], "Item_#{items[0].id}"],
+        [items[1], "Item_#{items[1].id}"],
+      )
+    end
+  end
 end

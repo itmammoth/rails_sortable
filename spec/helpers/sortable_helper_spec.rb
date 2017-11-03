@@ -9,7 +9,7 @@ describe SortableHelper, type: :helper do
     end
 
     context "with no block" do
-      it { expect { helper.sortable_fetch(Array.new) }.to raise_error('You must call with block!') }
+      it { expect { helper.sortable_fetch(Array.new) }.to raise_error('Must be called with block!') }
     end
 
     context "with block" do
