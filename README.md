@@ -94,7 +94,7 @@ see the [http://api.jqueryui.com/sortable/](http://api.jqueryui.com/sortable/) t
 
 Fork it, then install required gems like below.
 ```bash
-$ bundle install --path=vender/bundle
+$ bundle install --path=vendor/bundle
 $ appraisal install
 ```
 
@@ -104,6 +104,9 @@ Please give me a PR freely.
 ```bash
 # Run server with rails 5.1 (rails42 & rails50 are also available)
 $ appraisal rails51 spec/dummy/bin/rails s
+
+# Migrate test db
+$ RAILS_ENV=test appraisal rails51 spec/dummy/bin/rails db:migrate
 
 # Run rspec for all rails versions
 $ appraisal rspec
