@@ -105,6 +105,8 @@ Please give me a PR freely.
 # Test with a dummy application (rails42 & rails50 are also available)
 $ bundle exec appraisal rails51 spec/dummy/bin/rake db:migrate
 $ bundle exec appraisal rails51 spec/dummy/bin/rails s
+# Insert test data
+$ bundle exec appraisal rails51 spec/dummy/bin/rake db:seed
 
 # Run rspecs
 $ RAILS_ENV=test bundle exec appraisal rails51 spec/dummy/bin/rake db:migrate
