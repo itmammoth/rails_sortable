@@ -74,6 +74,11 @@ and the listing view (typically - index.html.erb) as
     <% end %>
   </tbody>
 </table>
+
+<!-- or just invoke model#sortable_id to get the id for sotable -->
+...
+<% @items.each do |item| %>
+  <tr id="<%= item.sortable_id %>">
 ...
 ```
 
