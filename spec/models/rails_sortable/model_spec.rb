@@ -53,6 +53,13 @@ describe RailsSortable::Model, type: :model do
     end
   end
 
+  describe "sortable_id" do
+    it "should return a correct sortable_id" do
+      item = Item.create!
+      expect(item.sortable_id).to eq("Item_#{item.id}") 
+    end
+  end
+
   describe "each_with_sortable_id" do
     it "should make models iterable with sortable ids" do
       items = 2.times.map { |i| Item.create! sort: i }

@@ -29,6 +29,10 @@ module RailsSortable
       end
     end
 
+    def sortable_id
+      "#{self.class}_#{self.id}"
+    end
+
   protected
 
     def maximize_sort
