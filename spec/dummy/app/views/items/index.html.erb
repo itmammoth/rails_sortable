@@ -12,7 +12,7 @@
     </tr>
   </thead>
 
-  <tbody class="sortable">
+  <tbody class="sortable-items">
     <% @items.each_with_sortable_id do |item, sortable_id| %>
       <tr id="<%= sortable_id %>">
         <td><%= item.title %></td>
