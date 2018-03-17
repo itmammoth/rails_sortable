@@ -1,14 +1,17 @@
 (function($) {
 
   $.fn.railsSortable = function(options) {
-    var defaults = {
+    options = options || {};
+    var setting = $.extend({
       axis: 'y',
-      scroll: 'true'
-    };
+      scroll: 'true',
+    }, options);
 
-    var setting = $.extend(defaults, options);
-    setting["update"] = function() {
-      $.post("/sortable/reorder", $(this).sortable('serialize'))
+    setting.update = function(event, ui) {
+      if (typeof options.update === 'function') {
+        options.update(event, ui);
+      }
+      $.post("/sortable/reorder", $(this).sortable('serialize'));
     }
 
     this.sortable(setting);

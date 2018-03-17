@@ -1,5 +1,5 @@
 (function($) {
 
-  $(".sortable").railsSortable();
+  $(".sortable-sequenced-items").railsSortable();
 
 })(jQuery);
