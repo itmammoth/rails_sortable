@@ -1,4 +1,4 @@
-class CreateMultipleClasses < ActiveRecord::Migration[5.1]
+class CreateMultipleClasses < Dummy::MigrationClass
   def change
     create_table :first_items do |t|
       t.string :title
