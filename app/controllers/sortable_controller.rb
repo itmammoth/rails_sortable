@@ -1,6 +1,6 @@
 class SortableController < ApplicationController
   #
-  # post /sortable/reorder, :klass => ["1", "3", "2"]
+  # post /sortable/reorder, rails_sortable: { klass: ["1", "3", "2"] }
   #
   def reorder
     klass, ids = parse_params
@@ -19,8 +19,9 @@ class SortableController < ApplicationController
 private
 
   def parse_params
-    klass_name = params.keys.first
-    ids = params[klass_name].map {|id| id.to_i }
+    rails_sortable_params = params['rails_sortable']
+    klass_name = rails_sortable_params.keys.first
+    ids = rails_sortable_params[klass_name].map {|id| id.to_i }
     [ klass_name.constantize, ids ]
   end
 end

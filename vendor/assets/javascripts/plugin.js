@@ -11,10 +11,18 @@
       if (typeof options.update === 'function') {
         options.update(event, ui);
       }
-      $.post("/sortable/reorder", $(this).sortable('serialize'));
+      $.post("/sortable/reorder", makePostData($(this)));
     }
 
     this.sortable(setting);
   };
 
+  var makePostData = function($sortable) {
+    var data = {}, klass, id;
+    $sortable.sortable('toArray').forEach(function(sortableId) {
+      [klass, id] = sortableId.split(/[-=_]/);
+      (data[klass] || (data[klass] = [])).push(id);
+    });
+    return { rails_sortable: data };
+  };
 })(jQuery);

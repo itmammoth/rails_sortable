@@ -9,9 +9,9 @@ describe SortableController, type: :controller do
     end
     it "should reorder models" do
       if Gem::Version.new(Rails.version) < Gem::Version.new(5)
-        post :reorder, Item: [@item1.id, @item3.id, @item2.id]
+        post :reorder, rails_sortable: { Item: [@item1.id, @item3.id, @item2.id] }
       else
-        post :reorder, params: { Item: [@item1.id, @item3.id, @item2.id] }
+        post :reorder, params: { rails_sortable: { Item: [@item1.id, @item3.id, @item2.id] } }
       end
       expect(response.body).to be_blank
       expect(Item.find(@item1.id).sort).to eql 0
