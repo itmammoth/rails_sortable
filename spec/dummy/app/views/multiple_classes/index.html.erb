@@ -1,0 +1,24 @@
+<h1>Listing multiple class items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Sort</th>
+      <th>Updated at</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody class="sortable-multiple-classes">
+    <% @items.each_with_sortable_id do |item, sortable_id| %>
+      <tr id="<%= sortable_id %>">
+        <td><%= item.title %></td>
+        <td><%= item.sort %></td>
+        <td><%= item.updated_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

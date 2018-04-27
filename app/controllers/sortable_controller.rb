@@ -1,15 +1,13 @@
 class SortableController < ApplicationController
   #
-  # post /sortable/reorder, rails_sortable: { klass: ["1", "3", "2"] }
+  # post /sortable/reorder, rails_sortable: [{ klass: "Item", id: "3" }, { klass: "Item", id: "2" }, { klass: "Item", id: "1" }]
   #
   def reorder
-    klass, ids = parse_params
-    attr = klass.sort_attribute
     ActiveRecord::Base.transaction do
-      id_to_model = klass.find(ids).index_by(&:id)
-      ids.each_with_index do |id, new_sort|
-        model = id_to_model[id]
-        model.update_sort!(new_sort) if model.read_attribute(attr) != new_sort
+      params['rails_sortable'].each_with_index do |klass_to_id, new_sort|
+        model = find_model(klass_to_id)
+        current_sort = model.read_attribute(model.class.sort_attribute)
+        model.update_sort!(new_sort) if current_sort != new_sort
       end
     end
 
@@ -18,10 +16,8 @@ class SortableController < ApplicationController
 
 private
 
-  def parse_params
-    rails_sortable_params = params['rails_sortable']
-    klass_name = rails_sortable_params.keys.first
-    ids = rails_sortable_params[klass_name].map {|id| id.to_i }
-    [ klass_name.constantize, ids ]
+  def find_model(klass_to_id)
+    klass, id = klass_to_id.values_at('klass', 'id')
+    klass.constantize.find(id.to_i)
   end
 end

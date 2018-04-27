@@ -11,17 +11,24 @@
       if (typeof options.update === 'function') {
         options.update(event, ui);
       }
-      $.post("/sortable/reorder", makePostData($(this)));
+
+      $.ajax({
+        type: 'POST',
+        url: '/sortable/reorder',
+        dataType: 'json',
+        contentType: 'application/json',
+        data: JSON.stringify(makePostData($(this))),
+      });
     }
 
     this.sortable(setting);
   };
 
   var makePostData = function($sortable) {
-    var data = {}, klass, id;
-    $sortable.sortable('toArray').forEach(function(sortableId) {
+    var klass, id;
+    var data = $.map($sortable.sortable('toArray'), function(sortableId) {
       [klass, id] = sortableId.split(/[-=_]/);
-      (data[klass] || (data[klass] = [])).push(id);
+      return { klass: klass, id: id };
     });
     return { rails_sortable: data };
   };
