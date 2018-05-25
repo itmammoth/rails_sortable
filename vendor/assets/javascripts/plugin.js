@@ -25,10 +25,9 @@
   };
 
   var makePostData = function($sortable) {
-    var klass, id;
     var data = $.map($sortable.sortable('toArray'), function(sortableId) {
-      [klass, id] = sortableId.split(/[-=_]/);
-      return { klass: klass, id: id };
+      klassAndId = sortableId.split(/[-=_]/);
+      return { klass: klassAndId[0], id: klassAndId[1] };
     });
     return { rails_sortable: data };
   };
