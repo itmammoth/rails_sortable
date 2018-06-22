@@ -14,7 +14,7 @@
 
       $.ajax({
         type: 'POST',
-        url: '/sortable/reorder',
+        url: "<%= RailsSortable.configuration.namespace %>/sortable/reorder",
         dataType: 'json',
         contentType: 'application/json',
         data: JSON.stringify(makePostData($(this))),

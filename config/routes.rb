@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  post "/sortable/reorder", to: "sortable#reorder"
+  post "#{RailsSortable.configuration.namespace}/sortable/reorder", to: "sortable#reorder"
 end
