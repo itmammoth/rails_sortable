@@ -94,7 +94,7 @@ $(function() {
 Please have a look at [Use cases@wiki](https://github.com/itmammoth/rails_sortable/wiki#use-cases) for further information.
 
 # Javascript options
-jQuery plugin `railsSortable` is just a wrapper of `jquery.ui.sortable`. therefore it accepts all of `sortbale` options.
+jQuery plugin `railsSortable` is just a wrapper of `jquery.ui.sortable`. therefore it accepts all of `sortable` options.
 
 see the [http://api.jqueryui.com/sortable/](http://api.jqueryui.com/sortable/) to get the details.
 
