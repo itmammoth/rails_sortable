@@ -26,7 +26,7 @@ And then add the following to the asset pipeline in the `application.js`:
 
 RailsSortable requires a specific column on the ActiveRecord Model for its implementation.
 
-For instance, the following migration indicates the case that you are attemtting to make `Item` model sortable.
+For instance, the following migration indicates the case that you are attempting to make `Item` model sortable.
 
 ```ruby
 class CreateItems < ActiveRecord::Migration[5.1]
