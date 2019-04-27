@@ -12,3 +12,4 @@ gemfiles/*.lock
 .rspec
 *.gem
 .tags
+.ruby-version

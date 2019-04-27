@@ -110,16 +110,16 @@ Please give me a PR freely.
 
 ### Testing
 ```bash
-# Test with a dummy application (rails42 & rails50 are also available)
-$ bundle exec appraisal rails51 spec/dummy/bin/rake db:migrate
-$ bundle exec appraisal rails51 spec/dummy/bin/rails s
+# Test with a dummy application (rails42, rails50 and rails51 are also available)
+$ bundle exec appraisal rails52 spec/dummy/bin/rake db:migrate
+$ bundle exec appraisal rails52 spec/dummy/bin/rails s
 # Insert test data
-$ bundle exec appraisal rails51 spec/dummy/bin/rake db:seed
+$ bundle exec appraisal rails52 spec/dummy/bin/rake db:seed
 
 # Run rspecs
-$ RAILS_ENV=test bundle exec appraisal rails51 spec/dummy/bin/rake db:migrate
+$ RAILS_ENV=test bundle exec appraisal rails52 spec/dummy/bin/rake db:migrate
 $ bundle exec appraisal rspec # for all rails versions
-$ bundle exec appraisal rails51 rspec # for specific version
+$ bundle exec appraisal rails52 rspec # for specific version
 ```
 
 # Licence
