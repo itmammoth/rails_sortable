@@ -14,18 +14,12 @@
         url: '/sortable/reorder',
         dataType: 'json',
         contentType: 'application/json',
-        data: JSON.stringify(makePostData($(this))),
+        data: JSON.stringify({
+          rails_sortable: $(this).sortable('toArray'),
+        }),
       });
     }
 
     this.sortable(settings);
-  };
-
-  var makePostData = function($sortable) {
-    var data = $.map($sortable.sortable('toArray'), function(sortableId) {
-      klassAndId = sortableId.split(/[-=_]/);
-      return { klass: klassAndId[0], id: klassAndId[1] };
-    });
-    return { rails_sortable: data };
   };
 })(jQuery);

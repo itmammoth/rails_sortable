@@ -56,7 +56,7 @@ describe RailsSortable::Model, type: :model do
   describe "sortable_id" do
     it "should return a correct sortable_id" do
       item = Item.create!
-      expect(item.sortable_id).to eq("Item_#{item.id}") 
+      expect(item.sortable_id).to eq(SortableController::VERIFIER.generate("class=Item,id=#{item.to_param}"))
     end
   end
 
@@ -64,8 +64,8 @@ describe RailsSortable::Model, type: :model do
     it "should make models iterable with sortable ids" do
       items = 2.times.map { |i| Item.create! sort: i }
       expect { |b| Item.order(:sort).each_with_sortable_id(&b) }.to yield_successive_args(
-        [items[0], "Item_#{items[0].id}"],
-        [items[1], "Item_#{items[1].id}"],
+        [items[0], SortableController::VERIFIER.generate("class=Item,id=#{items[0].to_param}")],
+        [items[1], SortableController::VERIFIER.generate("class=Item,id=#{items[1].to_param}")],
       )
     end
   end

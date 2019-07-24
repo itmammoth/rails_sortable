@@ -30,7 +30,7 @@ module RailsSortable
     end
 
     def sortable_id
-      "#{self.class}_#{self.id}"
+      SortableController::VERIFIER.generate("class=#{self.class},id=#{self.id}")
     end
 
   protected
