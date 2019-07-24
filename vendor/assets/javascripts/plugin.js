@@ -2,12 +2,9 @@
 
   $.fn.railsSortable = function(options) {
     options = options || {};
-    var setting = $.extend({
-      axis: 'y',
-      scroll: 'true',
-    }, options);
+    var settings = $.extend({}, options);
 
-    setting.update = function(event, ui) {
+    settings.update = function(event, ui) {
       if (typeof options.update === 'function') {
         options.update(event, ui);
       }
@@ -21,7 +18,7 @@
       });
     }
 
-    this.sortable(setting);
+    this.sortable(settings);
   };
 
   var makePostData = function($sortable) {
