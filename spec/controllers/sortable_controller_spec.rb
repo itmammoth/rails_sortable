@@ -1,5 +1,9 @@
 require 'spec_helper'
 
+def create_token(klass, id)
+  return SortableController::VERIFIER.generate("class=#{klass},id=#{id}")
+end
+
 describe SortableController, type: :controller do
   describe 'POST reorder' do
     before do
@@ -9,9 +13,9 @@ describe SortableController, type: :controller do
     end
     it 'should reorder models' do
       data = [
-        { klass: 'Item', id: @item1.to_param },
-        { klass: 'Item', id: @item3.to_param },
-        { klass: 'Item', id: @item2.to_param },
+        create_token('Item', @item1.to_param),
+        create_token('Item', @item3.to_param),
+        create_token('Item', @item2.to_param),
       ]
       if Gem::Version.new(Rails.version) < Gem::Version.new(5)
         post :reorder, rails_sortable: data
@@ -34,10 +38,10 @@ describe SortableController, type: :controller do
     end
     it 'should reorder models' do
       data = [
-        { klass: 'SecondItem', id: @second_item2.to_param },
-        { klass: 'FirstItem', id: @first_item2.to_param },
-        { klass: 'FirstItem', id: @first_item1.to_param },
-        { klass: 'SecondItem', id: @second_item1.to_param },
+        create_token('SecondItem', @second_item2.to_param),
+        create_token('FirstItem', @first_item2.to_param),
+        create_token('FirstItem', @first_item1.to_param),
+        create_token('SecondItem', @second_item1.to_param),
       ]
       if Gem::Version.new(Rails.version) < Gem::Version.new(5)
         post :reorder, rails_sortable: data

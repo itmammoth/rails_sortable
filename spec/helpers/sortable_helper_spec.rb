@@ -13,7 +13,7 @@ describe SortableHelper, type: :helper do
         new_item = Item.create!
         sortable_fetch([ new_item ]) do |item, id|
           expect(item).to eq new_item
-          expect(id).to eq "Item_#{new_item.id}"
+          expect(id).to eq SortableController::VERIFIER.generate("class=Item,id=#{new_item.id}")
         end
       end
     end
