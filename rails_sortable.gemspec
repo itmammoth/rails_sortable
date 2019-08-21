@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,lib,vendor/assets}/**/*", "LICENSE", "Rakefile", "README.md"]
 
-  s.test_files = Dir["spec/**/*"]
+  s.test_files = `git ls-files spec`.split("\n")
 
   s.add_development_dependency "appraisal", "~> 2.2"
   s.add_development_dependency "jquery-rails", "~> 4.3"
