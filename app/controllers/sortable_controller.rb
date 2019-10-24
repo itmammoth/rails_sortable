@@ -25,6 +25,6 @@ private
 
   def find_model(token)
     klass, id = VERIFIER.verify(token).match(/class=(.+),id=(.+)/)[1..2]
-    klass.constantize.find(id.to_i)
+    klass.constantize.find(id)
   end
 end
