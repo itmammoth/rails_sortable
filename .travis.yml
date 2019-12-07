@@ -4,8 +4,9 @@ before_install:
   - gem install bundler -v '< 2'
 install: "bundle install --jobs 8"
 rvm:
-  - 2.4.6
-  - 2.5.5
+  - 2.4.9
+  - 2.5.7
+  - 2.6.5
   - ruby-head
 gemfile:
   - gemfiles/rails42.gemfile
