@@ -18,10 +18,10 @@ Gem::Specification.new do |s|
 
   s.test_files = `git ls-files spec`.split("\n")
 
-  s.add_development_dependency "rails", "~> 5.2.0"
-  s.add_development_dependency "jquery-rails", "~> 4.3"
-  s.add_development_dependency "jquery-ui-rails", "~> 6.0"
-  s.add_development_dependency "sqlite3", "~> 1.3.6"
-  s.add_development_dependency "rspec-rails", "~> 3.5"
-  s.add_development_dependency "pry-rails", "~> 0.3"
+  s.add_development_dependency "rails", "~> 6.0.0"
+  s.add_development_dependency "jquery-rails", "~> 4.3.0"
+  s.add_development_dependency "jquery-ui-rails", "~> 6.0.0"
+  s.add_development_dependency "sqlite3", "~> 1.4.0"
+  s.add_development_dependency "rspec-rails", "~> 3.9.0"
+  s.add_development_dependency "pry-rails", "~> 0.3.0"
 end
