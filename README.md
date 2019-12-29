@@ -102,24 +102,21 @@ see the [http://api.jqueryui.com/sortable/](http://api.jqueryui.com/sortable/) t
 
 Fork it, then install required gems like below.
 ```bash
-$ bundle install --path=vendor/bundle
-$ bundle exec appraisal install
+$ bundle install
 ```
 
 Please give me a PR freely.
 
 ### Testing
 ```bash
-# Test with a dummy application (rails42, rails50 and rails51 are also available)
-$ bundle exec appraisal rails52 spec/dummy/bin/rake db:migrate
-$ bundle exec appraisal rails52 spec/dummy/bin/rails s
+# Test with a dummy application
+$ spec/dummy/bin/rails db:migrate
+$ spec/dummy/bin/rails s
 # Insert test data
-$ bundle exec appraisal rails52 spec/dummy/bin/rake db:seed
+$ spec/dummy/bin/rails db:seed
 
 # Run rspecs
-$ RAILS_ENV=test bundle exec appraisal rails52 spec/dummy/bin/rake db:migrate
-$ bundle exec appraisal rspec # for all rails versions
-$ bundle exec appraisal rails52 rspec # for specific version
+$ bundle exec rspec
 ```
 
 # Licence
