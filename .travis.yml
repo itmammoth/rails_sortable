@@ -16,6 +16,8 @@ gemfile:
   - gemfiles/rails60.gemfile
 matrix:
   exclude:
+    - rvm: 2.4.9
+      gemfile: gemfiles/rails60.gemfile
     - rvm: 2.7.0
       gemfile: gemfiles/rails42.gemfile
   fast_finish: true
