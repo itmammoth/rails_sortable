@@ -14,3 +14,4 @@ gemfiles/*.lock
 *.gem
 .tags
 .ruby-version
+.idea
