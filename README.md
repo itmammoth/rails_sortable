@@ -113,9 +113,10 @@ Please give me a PR freely.
 $ spec/dummy/bin/rails db:migrate
 $ spec/dummy/bin/rails s
 # Insert test data
+$ RAILS_ENV=test spec/dummy/bin/rails db:migrate
 $ spec/dummy/bin/rails db:seed
 
-# Run rspecs
+# Run specs
 $ bundle exec rspec
 ```
 
