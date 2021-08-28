@@ -8,6 +8,7 @@ rvm:
   - 2.5.7
   - 2.6.5
   - 2.7.0
+  - 3.0.2
 gemfile:
   - gemfiles/rails42.gemfile
   - gemfiles/rails50.gemfile
