@@ -45,8 +45,10 @@ and `Item` model as
 class Item < ApplicationRecord
   include RailsSortable::Model
   set_sortable :sort  # Indicate a sort column
-  # If you do NOT want timestamps to be updated on sorting, use the following option.
-  # set_sortable :sort, without_updating_timestamps: true
+  # set_sortable :sort,
+  #  without_updating_timestamps: true, # If you do NOT want timestamps to be updated on sorting
+  #  without_validations: true # # If you do NOT want validations to be run on sorting
+
 end
 ```
 and `ItemsController` as

@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe RailsSortable::Model, type: :model do
-
   describe "before_create" do
     context "when sort is nil" do
       it "should be automatically set maximum sort value" do
@@ -48,6 +47,39 @@ describe RailsSortable::Model, type: :model do
         it "should modify timestamps" do
           item = Item.create!
           expect { item.update_sort!(1000) }.to change(item, :updated_at)
+        end
+      end
+    end
+
+    describe "without_validations" do
+      context "when optional value is true" do
+        before do
+          ValidatedItem.class_eval do
+            set_sortable :sort, without_validations: true
+          end
+        end
+
+        it "will skip validations" do
+          item = ValidatedItem.create!(title: "Title")
+          item.update_attribute(:title, nil)
+          expect { item.update_sort!(1000) }.not_to raise_error
+        end
+      end
+
+      context "when optional value is false" do
+        before do
+          ValidatedItem.class_eval do
+            set_sortable :sort, without_validations: false
+          end
+        end
+
+        # defaults falsey
+        it "will require validations" do
+          item = ValidatedItem.create!(title: "Title")
+          item.update_attribute(:title, nil)
+          expect do
+            item.update_sort!(1000)
+          end.to raise_error(ActiveRecord::RecordInvalid, /Title can't be blank/)
         end
       end
     end
