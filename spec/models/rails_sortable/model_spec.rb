@@ -73,7 +73,6 @@ describe RailsSortable::Model, type: :model do
           end
         end
 
-        # defaults falsey
         it "will require validations" do
           item = ValidatedItem.create!(title: "Title")
           item.update_attribute(:title, nil)
