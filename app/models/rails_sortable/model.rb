@@ -19,15 +19,14 @@ module RailsSortable
 
     def update_sort!(new_value)
       write_attribute sort_attribute, new_value
-      without_validations = self.class.sortable_options[:without_validations]
 
       if self.class.sortable_options[:silence_recording_timestamps]
         warn "[DEPRECATION] `silence_recording_timestamps` is deprecated. Please use `without_updating_timestamps` instead."
-        without_updating_timestamps { save_as_desired(without_validations) }
+        without_updating_timestamps { save_as_desired }
       elsif self.class.sortable_options[:without_updating_timestamps]
-        without_updating_timestamps { save_as_desired(without_validations) }
+        without_updating_timestamps { save_as_desired }
       else
-        save_as_desired(without_validations)
+        save_as_desired
       end
     end
 
@@ -54,8 +53,8 @@ module RailsSortable
       (self.class.maximum(sort_attribute) || 0) + 1
     end
 
-    def save_as_desired(without_validations)
-      without_validations ? save(validate: false) : save!
+    def save_as_desired
+      self.class.sortable_options[:without_validations] ? save(validate: false) : save!
     end
 
     def sort_attribute
