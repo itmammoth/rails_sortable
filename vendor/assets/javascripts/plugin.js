@@ -3,6 +3,8 @@
   $.fn.railsSortable = function(options) {
     options = options || {};
     var settings = $.extend({}, options);
+    
+    settings.base_url = settings.base_url || '';
 
     settings.update = function(event, ui) {
       if (typeof options.update === 'function') {
@@ -11,7 +13,7 @@
 
       $.ajax({
         type: 'POST',
-        url: '/sortable/reorder',
+        url: settings.base_url + '/sortable/reorder',
         dataType: 'json',
         contentType: 'application/json',
         data: JSON.stringify({
